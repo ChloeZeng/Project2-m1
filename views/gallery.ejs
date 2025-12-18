@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pet Adoption</title>
+        <link rel="stylesheet" href="/style.css">
+    </head>
+    <body>
+    <!-- Container to wrap everything-->
+    <div id="container">
+        <!-- Brand of website -->
+        <header style="font-size: 60px; color: #fbf9ab;">Bayarea Pet Adoption service</header>
+        <!-- Main Navigation -->
+        <nav>
+            <ul>           
+                <li><a href="/">Home</a></li>               
+                <li><a href="/pets">See Available Pets</a></li>
+                <li><a href="/gallery">Gallery</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </nav><!-- End Main Navigation -->
+
+        <!-- Main Content -->
+        <main>
+        <h1>Pet Gallery</h1>
+        <p>Meet some of our adorable pets waiting for a forever home:</p>
+
+        <ul id="gallery"></ul>
+        
+        </main>
+        <!-- End Main Content -->
+
+    <!-- Footer information --> 
+    <footer>&copy; Copyright 2025</footer>
+    </div> <!-- End Container --> 
+
+<script>
+        var photos = []; // 
+        var fileNames = [
+            "dog1.png","dog2.png","dog3.png","dog4.png","dog5.png",
+            "dog6.png","dog7.png","dog8.png","dog9.png","dog10.png"
+        ];
+        var captions = [
+            "Happy Dog", "Playful Pup", "Adopt Me", "Best Friend", "Cute Smile",
+            "Rescue Me", "Sweet Puppy", "Adorable Face", "Loyal Friend", "Forever Home"
+        ];
+        var descTexts = [
+            "Playful puppy enjoying the sunshine",
+            "Curious dog looking for a friend",
+            "Rescue dog waiting for a home",
+            "Sweet pup loves children",
+            "Adorable small dog with big ears",
+            "Energetic dog loves running",
+            "Gentle and calm companion",
+            "Happy dog ready for adoption",
+            "Loyal friend with a wagging tail",
+            "Cute pup loves cuddles"
+        ];
+        var openCaptionTag = "<figcaption class='caption'>";
+        var closeCaptionTag = "</figcaption>";
+        var openDescTag = "<div class='description'>";
+        var closeDescTag = "</div>";
+
+        var imageList = []; 
+
+  
+        for (var i = 0; i < fileNames.length; i++) {
+
+        var openList = "<li id='photo" + (i+1) + "'>";
+        var closeList = "</li>";
+        var image =
+            "<figure class='photo-card'>" +
+                "<img src='images/" + fileNames[i] + "' alt='" + captions[i] + "'>" +
+                openDescTag + descTexts[i] + closeDescTag +
+                openCaptionTag + captions[i] + closeCaptionTag +
+            "</figure>";
+
+    imageList.push(openList + image + closeList);
+        }
+
+  document.getElementById("gallery").innerHTML = imageList.join("");
+</script>
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Lightbox Container -->
+<div id="backdrop"></div>
+<div class="box">
+    <span class="close">&times;</span>
+    <div class="content"></div>
+</div>
+
+<!-- Lightbox Script -->
+<script>
+$(document).ready(function(){
+    // When any image in the gallery is clicked
+    $("#gallery img").on("click", function(){
+        // Clone the clicked image into the lightbox
+        var cloneImg = $(this).clone();
+        $(".box .content").empty().append(cloneImg);
+        
+        // Show the backdrop and lightbox with fade-in
+        $("#backdrop, .box").fadeIn(400);
+    });
+
+    // When close button or backdrop is clicked, fade out
+    $(".close, #backdrop").on("click", function(){
+        $("#backdrop, .box").fadeOut(400);
+    });
+});
+</script>
+    </body>
+</html>

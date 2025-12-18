@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Bayarea Pet Adoption service</title>
+        <link rel="stylesheet" href="/style.css">
+    </head>
+
+    <body>
+    <!-- Container to wrap everything-->
+    <div id="container">
+        <!-- Brand of website -->
+        <header style="font-size: 60px; color: #fbf9ab">Available Pets</header>
+        <!-- Main Navigation -->
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>               
+                <li><a href="/pets">See Available Pets</a></li>
+                <li><a href="/gallery">Gallery</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </nav><!-- End Main Navigation -->
+
+        <!-- Main Content -->
+        <main>
+        <h1>Bayarea Pet Adoption - Available Pets</h1>
+        <p>Here are some of the adorable pets waiting for a loving home:</p>
+
+
+    <!-- Table of pets -->
+<table border="1" cellpadding="10">
+  <caption>Pets Information</caption>
+  <tr>
+    <th>Photo</th>
+    <th>Name</th>
+    <th>Age</th>
+    <th>Breed</th>
+  </tr>
+
+  <% if (pets && pets.length > 0) { %>
+    <% pets.forEach(pet => { %>
+      <tr>
+        <td>
+          <img src="<%= pet.imageUrl %>" alt="<%= pet.name %>" width="150">
+        </td>
+        <td><%= pet.name %></td>
+        <td><%= pet.age %></td>
+        <td><%= pet.breed %></td>
+      </tr>
+    <% }) %>
+  <% } else { %>
+    <tr>
+      <td colspan="4">No pets available yet.</td>
+    </tr>
+  <% } %>
+</table>
+
+
+    </main>
+        <!-- End Main Content -->
+
+        <!-- Link back to homepage -->
+  <p>
+    <a href="/gallery">Gallery →</a>
+  </p>
+
+    <!-- Footer information --> 
+    <footer>&copy; Copyright 2025</footer>
+    </div> <!-- End Container --> 
+    </body>
+</html>

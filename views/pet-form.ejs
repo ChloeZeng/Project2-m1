@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add New Pet</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<header>
+  <h1>Add New Pet</h1>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="/dashboard">Dashboard</a></li>
+    <li><a href="/pets">View Pets</a></li>
+  </ul>
+</nav>
+
+<main>
+  <form action="/pets" method="post">
+    <label>Pet Name</label>
+    <input type="text" name="name" required>
+
+    <label>Age</label>
+    <input type="number" name="age">
+
+    <label>Breed</label>
+    <input type="text" name="breed">
+
+    <label>Description</label>
+    <textarea name="description"></textarea>
+
+    <label>Image URL</label>
+    <input type="text" name="imageUrl" required>
+
+    <button type="submit">Create Pet</button>
+  </form>
+</main>
+
+</body>
+</html>

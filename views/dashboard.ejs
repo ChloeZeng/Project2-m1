@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<header>
+  <h1>Admin Dashboard</h1>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/pets">View Pets</a></li>
+    <li>
+      <form action="/logout" method="post" style="display:inline;">
+        <button type="submit">Logout</button>
+      </form>
+    </li>
+  </ul>
+</nav>
+
+<main>
+  <h2>Manage Pets</h2>
+
+  <!-- Add New Pet Button -->
+  <p>
+    <a href="/pets/new">
+      <button>Add New Pet</button>
+    </a>
+  </p>
+
+  <!-- List of Pets -->
+  <% if (pets && pets.length > 0) { %>
+    <ul>
+      <% pets.forEach(pet => { %>
+        <li>
+          <strong><%= pet.name %></strong>
+          (<%= pet.age %> years, <%= pet.breed %>)
+        </li>
+      <% }) %>
+    </ul>
+  <% } else { %>
+    <p>No pets available yet.</p>
+  <% } %>
+
+  <p>
+  <a href="/pets/new">
+    <button>Add New Pet</button>
+  </a>
+</p>
+
+</main>
+
+</body>
+</html>

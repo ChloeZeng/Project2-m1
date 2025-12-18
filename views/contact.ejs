@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+         <link rel="stylesheet" href="/style.css">
+    </head>
+    <body>
+    <!-- Container to wrap everything-->
+    <div id="container">
+        <!-- Brand of website -->
+        <header></header>
+        <!-- Main Navigation -->
+        <nav>
+            <ul>
+            <li><a href="/">Home</a></li>               
+            <li><a href="/pets">See Available Pets</a></li>
+            <li><a href="/gallery">Gallery</a></li>
+            <li><a href="/contact">Contact</a></li>
+
+            </ul>
+        </nav><!-- End Main Navigation -->
+
+        <!-- Main Content -->
+        <main>
+        <h1>Contact us</h1>
+        <p>Leave your message, we will contact you back soon.</p>
+        
+        <form action="/contact" method="post">
+            <fieldset>
+                <legend>Leave your information</legend>
+
+                <label>Enter your email</label>
+                <input type="email" name=""email">
+                <label>Enter your phone number</label>
+                <input type="text" name=""phone">
+                <label>Select your gender</label>
+                <input type="radio" name="gender" value="male"/>Male
+                <input type="radio" name="gender" value="female"/>Female 
+                <label>How shoud we contact you?</label>
+                <select id="contactMethod">
+                     <option id="choose" value="">-- Please choose an option --</option>
+                     <option id="optEmail" value="email">Email</option>
+                     <option id="optPhone" value="phone">Phone</option>
+                </select>
+
+                <!-- Email field -->
+                <div id="emailField" style="display:none;">
+                    <label for="email">Enter your email</label>
+                    <input type="email" id="email" name="email">
+                </div>
+                <!-- Phone field -->
+                <div id="phoneField" style="display:none;">
+                    <label for="phone">Enter your phone number</label>
+                    <input type="text" id="phone" name="phone">
+                </div>
+
+                <label>Tell us the reason of your visit today: </label>
+                <textarea id="reason" name="reason" rows="5" cols="30"></textarea>
+                <input type="submit" value="Sent">
+            </fieldset>
+        </form>
+        </main>
+        <!-- End Main Content -->
+
+    <!-- Footer information --> 
+    <footer>&copy; Copyright 2025</footer>
+    </div> <!-- End Container --> 
+    </body>
+
+   <script src="/contact.js"></script>
+</html>
