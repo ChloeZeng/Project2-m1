@@ -20,19 +20,19 @@ mongoose
 const app = express();
 const PORT = 3000;
 
-// 处理 __dirname（ESM 写法）
+// dirname
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// 设置模板引擎 EJS
+// EJS
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
-// 静态资源
+// static data
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 
-// 路由
+// routes
 app.get("/", (req, res) => {
   res.render("index");     // 对应 views/index.ejs
 });
@@ -50,9 +50,7 @@ app.get("/contact", (req, res) => {
 });
 
 app.post("/contact", async (req, res) => {
-  // 简单处理用户留言，可以先 console.log
   console.log(req.body);
-  // 以后可以建一个 Message model 存进 MongoDB
   res.send("Thank you for contacting us!");
 });
 
@@ -118,7 +116,7 @@ app.get("/dashboard", requireLogin, async (req, res) => {
   res.render("dashboard", { pets });
 });
 
-// 显示 Add New Pet 表单（受保护）
+// Add New Pet form
 app.get("/pets/new", requireLogin, (req, res) => {
   res.render("pet-form");
 });
@@ -142,6 +140,14 @@ app.post("/pets", requireLogin, async (req, res) => {
 });
 
 
-app.listen(PORT, () => {
+/* app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
-});
+}); */
+
+if (process.env.NODE_ENV !== "test") {
+  app.listen(PORT, () => {
+    console.log(`Server running at http://localhost:${PORT}`);
+  });
+}
+
+export default app;
