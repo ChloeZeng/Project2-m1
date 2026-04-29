@@ -1,6 +1,12 @@
+            html,
+            body {
+                background-color: #ffffff;
+                margin: 0;
+                min-height: 100%;
+            }
             header{
                 background: url(images/HD-wallpaper-looking-the-horizon-cat-dog-horizon-sunset-kittrn-puppy.jpg) 0 -200px no-repeat; /*place image as background */
-                background-size: 1500px;
+                background-size: cover; /* make the background image cover the entire header */
                 /*background-position: 0 -200px:*/
                 /*backgound-repeat: no-repeat;*/
                 height: 400px; /* give header some height to display the background image */
